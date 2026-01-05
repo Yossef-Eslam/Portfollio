@@ -2,13 +2,14 @@ import { motion } from 'framer-motion';
 
 interface NavItem {
   id: string;
-  label: string;
+  labelAr: string;
+  labelEn: string;
 }
 
 const navItems: NavItem[] = [
-  { id: 'home', label: 'الرئيسية' },
-  { id: 'about', label: 'من أنا' },
-  { id: 'contact', label: 'تواصل معي' },
+  { id: 'home', labelAr: 'الرئيسية', labelEn: 'Home' },
+  { id: 'about', labelAr: 'من أنا', labelEn: 'Who I Am' },
+  { id: 'contact', labelAr: 'تواصل معي', labelEn: 'Contact Me' },
 ];
 
 interface NavigationProps {
@@ -48,7 +49,10 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
                 transition={{ type: "spring", stiffness: 400, damping: 30 }}
               />
             )}
-            <span className="relative z-10">{item.label}</span>
+            <span className="relative z-10 flex flex-col items-center leading-tight">
+              <span className="text-sm">{item.labelAr}</span>
+              <span className="text-xs opacity-80">{item.labelEn}</span>
+            </span>
           </motion.button>
         ))}
       </div>
