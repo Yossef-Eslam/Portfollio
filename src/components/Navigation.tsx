@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface NavItem {
   id: string;
@@ -18,22 +18,41 @@ interface NavigationProps {
 
 const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
   return (
-    <nav className="flex justify-center gap-3 py-6 bg-background">
-      {navItems.map((item, index) => (
-        <button
-          key={item.id}
-          onClick={() => onNavigate(item.id)}
-          className={`px-6 py-3 rounded-full text-base font-medium transition-all duration-300 animate-scale-in ${
-            activeSection === item.id
-              ? 'gradient-button text-primary-foreground shadow-button'
-              : 'bg-muted text-foreground hover:bg-muted/80'
-          }`}
-          style={{ animationDelay: `${index * 0.1}s` }}
-        >
-          {item.label}
-        </button>
-      ))}
-    </nav>
+    <motion.nav 
+      className="flex justify-center gap-3 py-8 bg-background sticky top-0 z-40 backdrop-blur-lg bg-background/80 border-b border-border/50"
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: 0.6 }}
+    >
+      <div className="flex gap-3 p-2 rounded-2xl bg-muted/50 backdrop-blur-sm">
+        {navItems.map((item, index) => (
+          <motion.button
+            key={item.id}
+            onClick={() => onNavigate(item.id)}
+            className={`relative px-7 py-3.5 rounded-xl text-base font-semibold font-tajawal transition-all duration-300 ${
+              activeSection === item.id
+                ? 'text-primary-foreground'
+                : 'text-foreground/70 hover:text-foreground hover:bg-white/50'
+            }`}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.7 + index * 0.1, duration: 0.4 }}
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {activeSection === item.id && (
+              <motion.div
+                layoutId="activeNav"
+                className="absolute inset-0 gradient-button rounded-xl shadow-button"
+                initial={false}
+                transition={{ type: "spring", stiffness: 400, damping: 30 }}
+              />
+            )}
+            <span className="relative z-10">{item.label}</span>
+          </motion.button>
+        ))}
+      </div>
+    </motion.nav>
   );
 };
 

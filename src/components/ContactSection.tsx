@@ -1,4 +1,5 @@
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Mail, Send, User, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
 
 const ContactSection = () => {
@@ -7,71 +8,155 @@ const ContactSection = () => {
     email: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
+    setIsSubmitting(true);
+    // Simulate submission
+    await new Promise(resolve => setTimeout(resolve, 1000));
     console.log('Form submitted:', formData);
+    setIsSubmitting(false);
+    setFormData({ name: '', email: '', message: '' });
   };
 
+  const inputClasses = "w-full px-5 py-4 rounded-xl border-2 border-border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 placeholder:text-muted-foreground/60";
+
   return (
-    <section id="contact" className="py-12 px-6">
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold text-primary mb-8 text-center">
-          تواصل معي
-        </h2>
-        <div className="bg-card rounded-2xl shadow-card p-8">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-foreground font-medium mb-2">
-                الاسم
+    <section id="contact" className="py-20 px-6 relative">
+      {/* Background decoration */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-primary/5 to-transparent rounded-full blur-3xl" />
+      </div>
+
+      <div className="max-w-3xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <motion.span
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4"
+          >
+            Get In Touch
+          </motion.span>
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+          >
+            Contact Me
+          </motion.h2>
+        </motion.div>
+
+        <motion.div 
+          className="bg-card rounded-3xl shadow-card p-8 md:p-12"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          <form onSubmit={handleSubmit} className="space-y-6" dir="ltr">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+            >
+              <label htmlFor="name" className="flex items-center gap-2 text-foreground font-medium mb-3">
+                <User className="w-4 h-4 text-primary" />
+                Name
               </label>
               <input
                 type="text"
                 id="name"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                placeholder="أدخل اسمك"
+                className={inputClasses}
+                placeholder="Enter your name"
                 required
               />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-foreground font-medium mb-2">
-                البريد الإلكتروني
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+            >
+              <label htmlFor="email" className="flex items-center gap-2 text-foreground font-medium mb-3">
+                <Mail className="w-4 h-4 text-primary" />
+                Email
               </label>
               <input
                 type="email"
                 id="email"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-all"
-                placeholder="أدخل بريدك الإلكتروني"
+                className={inputClasses}
+                placeholder="Enter your email"
                 required
               />
-            </div>
-            <div>
-              <label htmlFor="message" className="block text-foreground font-medium mb-2">
-                الرسالة
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+            >
+              <label htmlFor="message" className="flex items-center gap-2 text-foreground font-medium mb-3">
+                <MessageSquare className="w-4 h-4 text-primary" />
+                Message
               </label>
               <textarea
                 id="message"
-                rows={4}
+                rows={5}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full px-4 py-3 rounded-lg border border-border bg-background text-foreground focus:ring-2 focus:ring-primary focus:border-transparent transition-all resize-none"
-                placeholder="اكتب رسالتك هنا..."
+                className={`${inputClasses} resize-none`}
+                placeholder="Write your message here..."
                 required
               />
-            </div>
-            <button
-              type="submit"
-              className="w-full py-4 rounded-lg gradient-button text-primary-foreground font-bold text-lg shadow-button hover:opacity-90 transition-opacity"
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
             >
-              إرسال الرسالة
-            </button>
+              <motion.button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full py-4 rounded-xl gradient-button text-primary-foreground font-bold text-lg shadow-button font-tajawal flex items-center justify-center gap-3 disabled:opacity-70"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {isSubmitting ? (
+                  <motion.div
+                    className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full"
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                  />
+                ) : (
+                  <>
+                    <Send className="w-5 h-5" />
+                    أرسل الرسالة
+                  </>
+                )}
+              </motion.button>
+            </motion.div>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
