@@ -75,7 +75,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.7 }}
         >
-          <span className="text-foreground">Youssef </span>
+          <span className="text-foreground">Yossef </span>
           <span className="text-gradient">Eslam</span>
           <span className="block text-3xl md:text-4xl lg:text-5xl font-light mt-2 text-foreground/80">
             El-Tokhy

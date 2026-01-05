@@ -3,6 +3,7 @@ import HeroSection from '@/components/HeroSection';
 import Navigation from '@/components/Navigation';
 import WelcomeCard from '@/components/WelcomeCard';
 import AboutSection from '@/components/AboutSection';
+import CertificatesSection from '@/components/CertificatesSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
@@ -20,7 +21,7 @@ const Index = () => {
   // Update active section on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['home', 'about', 'contact'];
+      const sections = ['home', 'about', 'certificates', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const section of sections) {
@@ -47,6 +48,7 @@ const Index = () => {
       <main className="flex-1">
         <WelcomeCard />
         <AboutSection />
+        <CertificatesSection />
         <ContactSection />
       </main>
       

@@ -151,7 +151,7 @@ const ContactSection = () => {
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    أرسل الرسالة
+                    Send Mail
                   </>
                 )}
               </motion.button>

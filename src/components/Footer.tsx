@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { Heart, Github, Linkedin, Mail } from 'lucide-react';
+import { Heart, Linkedin, Facebook, MessageCircle } from 'lucide-react';
 
 const socialLinks = [
-  { icon: Github, href: '#', label: 'GitHub' },
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Mail, href: '#', label: 'Email' },
+  { icon: MessageCircle, href: 'https://wa.me/201155625203', label: 'WhatsApp' },
+  { icon: Linkedin, href: 'https://www.linkedin.com/in/yossef-eslam-158094305/', label: 'LinkedIn' },
+  { icon: Facebook, href: 'https://www.facebook.com/yossef.eltokhy/about', label: 'Facebook' },
 ];
 
 const Footer = () => {
@@ -37,6 +37,8 @@ const Footer = () => {
             <motion.a
               key={social.label}
               href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-12 h-12 rounded-full bg-card/50 hover:bg-primary/20 flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300 backdrop-blur-sm border border-primary/10 hover:border-primary/30"
               whileHover={{ scale: 1.1, y: -3 }}
               whileTap={{ scale: 0.95 }}
@@ -60,7 +62,7 @@ const Footer = () => {
           transition={{ delay: 0.5 }}
         >
           <p className="text-muted-foreground text-base flex items-center justify-center gap-2">
-            © {currentYear} <span className="text-gradient font-semibold">Youssef Eslam</span> — Made with 
+            {currentYear} <span className="text-gradient font-semibold">Yossef Eslam</span> - Made with 
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}

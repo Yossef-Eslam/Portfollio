@@ -52,7 +52,7 @@ const WelcomeCard = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              I'm Youssef, an Information Technology engineer passionate about building innovative solutions.
+              I'm Yossef, an Information Technology engineer passionate about building innovative solutions.
             </motion.p>
             <motion.p 
               className="text-muted-foreground text-lg md:text-xl leading-relaxed"
@@ -90,7 +90,7 @@ const WelcomeCard = () => {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.98 }}
             >
-              اعرف المزيد
+              More
             </motion.button>
           </motion.div>
         </motion.div>
