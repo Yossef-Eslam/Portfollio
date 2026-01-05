@@ -20,13 +20,13 @@ const ContactSection = () => {
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const inputClasses = "w-full px-5 py-4 rounded-xl border-2 border-border bg-background text-foreground focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all duration-300 placeholder:text-muted-foreground/60";
+  const inputClasses = "w-full px-5 py-4 rounded-xl border-2 border-primary/15 bg-card text-foreground focus:ring-2 focus:ring-primary/30 focus:border-primary/40 transition-all duration-300 placeholder:text-muted-foreground/60";
 
   return (
     <section id="contact" className="py-20 px-6 relative">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-primary/5 to-transparent rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-t from-primary/10 to-transparent rounded-full blur-[100px]" />
       </div>
 
       <div className="max-w-3xl mx-auto relative z-10">
@@ -42,23 +42,24 @@ const ContactSection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-1.5 rounded-full bg-secondary/10 text-secondary text-sm font-medium mb-4"
+            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4 border border-primary/20"
           >
             Get In Touch
           </motion.span>
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-foreground"
+            className="text-3xl md:text-4xl font-bold font-playfair"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            Contact Me
+            <span className="text-foreground">Contact </span>
+            <span className="text-gradient">Me</span>
           </motion.h2>
         </motion.div>
 
         <motion.div 
-          className="bg-card rounded-3xl shadow-card p-8 md:p-12"
+          className="glass-card rounded-3xl shadow-card p-8 md:p-12 border border-primary/10"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -137,13 +138,13 @@ const ContactSection = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-xl gradient-button text-primary-foreground font-bold text-lg shadow-button font-tajawal flex items-center justify-center gap-3 disabled:opacity-70"
+                className="w-full py-4 rounded-xl gradient-button text-primary-foreground font-bold text-lg shadow-button font-tajawal flex items-center justify-center gap-3 disabled:opacity-70 gold-glow"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
                 {isSubmitting ? (
                   <motion.div
-                    className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full"
+                    className="w-6 h-6 border-3 border-primary-foreground/30 border-t-primary-foreground rounded-full"
                     animate={{ rotate: 360 }}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                   />

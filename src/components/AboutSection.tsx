@@ -6,19 +6,19 @@ const skills = [
     icon: Database,
     title: 'Databases',
     description: 'Expert in designing and managing various database systems for optimal performance',
-    color: 'from-blue-500 to-cyan-400',
+    color: 'from-primary to-secondary',
   },
   {
     icon: Code,
     title: 'Programming',
     description: 'Developing web applications and diverse software solutions with modern technologies',
-    color: 'from-violet-500 to-purple-400',
+    color: 'from-primary via-accent to-secondary',
   },
   {
     icon: Shield,
     title: 'Cybersecurity',
     description: 'Protecting systems and networks from electronic threats and vulnerabilities',
-    color: 'from-emerald-500 to-teal-400',
+    color: 'from-secondary to-primary',
   },
 ];
 
@@ -37,11 +37,11 @@ const aboutLines = [
 
 const AboutSection = () => {
   return (
-    <section id="about" className="py-20 px-6 bg-muted/30 relative overflow-hidden">
+    <section id="about" className="py-20 px-6 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-40 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-0 w-80 h-80 bg-secondary/5 rounded-full blur-3xl" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none gold-particles">
+        <div className="absolute top-40 left-0 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-20 right-0 w-80 h-80 bg-secondary/5 rounded-full blur-[80px]" />
       </div>
 
       <div className="max-w-6xl mx-auto relative z-10">
@@ -57,18 +57,19 @@ const AboutSection = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4"
+            className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4 border border-primary/20"
           >
             About Me
           </motion.span>
           <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-foreground mb-6"
+            className="text-3xl md:text-4xl font-bold mb-6 font-playfair"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            Who I Am
+            <span className="text-foreground">Who </span>
+            <span className="text-gradient">I Am</span>
           </motion.h2>
 
           {/* Staggered about lines */}
@@ -93,7 +94,7 @@ const AboutSection = () => {
           {skills.map((skill, index) => (
             <motion.div
               key={skill.title}
-              className="group bg-card rounded-2xl shadow-card p-8 text-center relative overflow-hidden"
+              className="group bg-card rounded-2xl shadow-card p-8 text-center relative overflow-hidden border border-primary/10 gold-glow"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
@@ -104,13 +105,13 @@ const AboutSection = () => {
               <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
               
               <motion.div 
-                className={`w-18 h-18 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${skill.color} flex items-center justify-center shadow-lg`}
+                className={`w-18 h-18 mx-auto mb-6 rounded-2xl bg-gradient-to-br ${skill.color} flex items-center justify-center shadow-gold`}
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <skill.icon className="w-9 h-9 text-white" />
+                <skill.icon className="w-9 h-9 text-primary-foreground" />
               </motion.div>
-              <h3 className="text-xl font-bold text-foreground mb-3">{skill.title}</h3>
+              <h3 className="text-xl font-bold text-foreground mb-3 font-playfair">{skill.title}</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">{skill.description}</p>
             </motion.div>
           ))}
@@ -127,7 +128,7 @@ const AboutSection = () => {
           {additionalSkills.map((skill, index) => (
             <motion.div
               key={skill.label}
-              className="flex items-center gap-2 px-5 py-3 rounded-full bg-card shadow-sm border border-border/50 hover:border-primary/30 hover:shadow-md transition-all duration-300"
+              className="flex items-center gap-2 px-5 py-3 rounded-full bg-card shadow-sm border border-primary/15 hover:border-primary/40 hover:shadow-gold transition-all duration-300"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}

@@ -16,6 +16,7 @@ export default {
       fontFamily: {
         sans: ["Inter", "Tajawal", "sans-serif"],
         tajawal: ["Tajawal", "sans-serif"],
+        playfair: ["Playfair Display", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -50,6 +51,18 @@ export default {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        gold: {
+          50: "hsl(43, 90%, 95%)",
+          100: "hsl(43, 85%, 85%)",
+          200: "hsl(43, 85%, 75%)",
+          300: "hsl(43, 85%, 65%)",
+          400: "hsl(43, 85%, 55%)",
+          500: "hsl(35, 85%, 50%)",
+          600: "hsl(30, 80%, 45%)",
+          700: "hsl(28, 75%, 35%)",
+          800: "hsl(25, 70%, 25%)",
+          900: "hsl(20, 65%, 15%)",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
@@ -96,6 +109,10 @@ export default {
           "0%": { opacity: "0", transform: "translateX(-30px)" },
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.5" },
+          "50%": { opacity: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -105,6 +122,7 @@ export default {
         "scale-in": "scale-in 0.5s ease-out forwards",
         "slide-in-right": "slide-in-right 0.6s ease-out forwards",
         "slide-in-left": "slide-in-left 0.6s ease-out forwards",
+        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
       },
     },
   },
