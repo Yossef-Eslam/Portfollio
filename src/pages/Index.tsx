@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import HeroSection from '@/components/HeroSection';
 import Navigation from '@/components/Navigation';
 import WelcomeCard from '@/components/WelcomeCard';
 import AboutSection from '@/components/AboutSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
-import ChatWidget from '@/components/ChatWidget';
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -18,8 +17,30 @@ const Index = () => {
     }
   };
 
+  // Update active section on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ['home', 'about', 'contact'];
+      const scrollPosition = window.scrollY + 200;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-background">
       <HeroSection />
       <Navigation activeSection={activeSection} onNavigate={handleNavigate} />
       
@@ -30,7 +51,6 @@ const Index = () => {
       </main>
       
       <Footer />
-      <ChatWidget />
     </div>
   );
 };
