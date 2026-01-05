@@ -20,12 +20,12 @@ interface NavigationProps {
 const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
   return (
     <motion.nav 
-      className="flex justify-center gap-3 py-8 bg-background sticky top-0 z-40 backdrop-blur-lg bg-background/80 border-b border-border/50"
+      className="flex justify-center gap-3 py-8 bg-background sticky top-0 z-40 backdrop-blur-lg bg-background/90 border-b border-primary/10"
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.6 }}
     >
-      <div className="flex gap-3 p-2 rounded-2xl bg-muted/50 backdrop-blur-sm">
+      <div className="flex gap-3 p-2 rounded-2xl bg-card/50 backdrop-blur-sm border border-primary/10">
         {navItems.map((item, index) => (
           <motion.button
             key={item.id}
@@ -33,7 +33,7 @@ const Navigation = ({ activeSection, onNavigate }: NavigationProps) => {
             className={`relative px-7 py-3.5 rounded-xl text-base font-semibold font-tajawal transition-all duration-300 ${
               activeSection === item.id
                 ? 'text-primary-foreground'
-                : 'text-foreground/70 hover:text-foreground hover:bg-white/50'
+                : 'text-foreground/70 hover:text-primary'
             }`}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}

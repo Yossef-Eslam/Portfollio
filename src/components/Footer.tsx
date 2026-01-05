@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <motion.footer 
-      className="gradient-footer py-10 px-6 relative overflow-hidden"
+      className="gradient-footer py-10 px-6 relative overflow-hidden border-t border-primary/10"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -20,8 +20,8 @@ const Footer = () => {
     >
       {/* Decorative elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-64 h-32 bg-white/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-48 h-24 bg-white/5 rounded-full blur-2xl" />
+        <div className="absolute top-0 left-1/4 w-64 h-32 bg-primary/5 rounded-full blur-[60px]" />
+        <div className="absolute bottom-0 right-1/4 w-48 h-24 bg-primary/5 rounded-full blur-[40px]" />
       </div>
 
       <div className="max-w-4xl mx-auto relative z-10">
@@ -37,7 +37,7 @@ const Footer = () => {
             <motion.a
               key={social.label}
               href={social.href}
-              className="w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/80 hover:text-white transition-all duration-300 backdrop-blur-sm border border-white/10"
+              className="w-12 h-12 rounded-full bg-card/50 hover:bg-primary/20 flex items-center justify-center text-muted-foreground hover:text-primary transition-all duration-300 backdrop-blur-sm border border-primary/10 hover:border-primary/30"
               whileHover={{ scale: 1.1, y: -3 }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 20 }}
@@ -59,13 +59,13 @@ const Footer = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.5 }}
         >
-          <p className="text-white/80 text-base flex items-center justify-center gap-2">
-            © {currentYear} Youssef Eslam — Made with 
+          <p className="text-muted-foreground text-base flex items-center justify-center gap-2">
+            © {currentYear} <span className="text-gradient font-semibold">Youssef Eslam</span> — Made with 
             <motion.span
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <Heart className="w-4 h-4 text-red-400 fill-red-400" />
+              <Heart className="w-4 h-4 text-primary fill-primary" />
             </motion.span>
             All rights reserved
           </p>
