@@ -78,6 +78,13 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', 'Tajawal', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Smoother transitions globally */
+  *, *::before, *::after {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
