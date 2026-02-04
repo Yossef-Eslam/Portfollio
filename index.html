@@ -12,32 +12,49 @@
     />
     <meta name="author" content="Yossef Eslam El-Tokhy" />
 
-    <!-- Preconnect for performance -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <!-- Preload critical fonts to prevent render blocking -->
+    <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/PlayfairDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
     <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-
+    <!-- Open Graph -->
     <meta property="og:title" content="Yossef Eslam El-Tokhy" />
-    <meta
-      property="og:description"
-      content="Engineer specializing in programming and cybersecurity"
-    />
+    <meta property="og:description" content="Engineer specializing in programming and cybersecurity" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://yossefeslam.info/" />
     <meta property="og:image" content="/og-image.png" />
 
-
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Yossef Eslam El-Tokhy" />
-    <meta
-      name="twitter:description"
-      content="Engineer specializing in programming and cybersecurity"
-    />
+    <meta name="twitter:description" content="Engineer specializing in programming and cybersecurity" />
     <meta name="twitter:image" content="/og-image.png" />
+
+    <!-- Inline critical font-face to prevent FOIT -->
+    <style>
+      @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url('/fonts/Inter-Regular.woff2') format('woff2');
+      }
+      @font-face {
+        font-family: 'Playfair Display';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url('/fonts/PlayfairDisplay-Bold.woff2') format('woff2');
+      }
+      /* System font fallback for immediate text rendering */
+      body {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      }
+    </style>
   </head>
 
   <body>

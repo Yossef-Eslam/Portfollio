@@ -1,4 +1,4 @@
-/* Self-hosted fonts for better performance */
+/* Critical fonts only - reduce initial font load */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
@@ -13,14 +13,6 @@
   font-weight: 500;
   font-display: swap;
   src: url('/fonts/Inter-Medium.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/Inter-SemiBold.woff2') format('woff2');
 }
 
 @font-face {
@@ -42,33 +34,9 @@
 @font-face {
   font-family: 'Tajawal';
   font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/Tajawal-Medium.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Tajawal';
-  font-style: normal;
   font-weight: 700;
   font-display: swap;
   src: url('/fonts/Tajawal-Bold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/PlayfairDisplay-Regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/PlayfairDisplay-SemiBold.woff2') format('woff2');
 }
 
 @font-face {
