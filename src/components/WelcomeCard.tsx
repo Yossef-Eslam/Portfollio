@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
 
 const WelcomeCard = () => {
   return (
@@ -28,9 +27,7 @@ const WelcomeCard = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
             className="flex items-center justify-center gap-2 mb-4 sm:mb-5 md:mb-6"
           >
-            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary animate-sparkle" />
             <span className="text-xs sm:text-sm font-medium text-primary uppercase tracking-wider">Welcome</span>
-            <Sparkles className="w-4 h-4 sm:w-5 sm:h-5 text-primary animate-sparkle" />
           </motion.div>
 
           <motion.h2 
