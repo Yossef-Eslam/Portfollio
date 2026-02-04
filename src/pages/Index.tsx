@@ -1,12 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import HeroSection from '@/components/HeroSection';
 import Navigation from '@/components/Navigation';
 import WelcomeCard from '@/components/WelcomeCard';
-import AboutSection from '@/components/AboutSection';
-import ProjectsSection from '@/components/ProjectsSection';
-import CertificatesSection from '@/components/CertificatesSection';
-import ContactSection from '@/components/ContactSection';
-import Footer from '@/components/Footer';
+
+// Lazy load below-the-fold components for better initial load performance
+const AboutSection = lazy(() => import('@/components/AboutSection'));
+const ProjectsSection = lazy(() => import('@/components/ProjectsSection'));
+const CertificatesSection = lazy(() => import('@/components/CertificatesSection'));
+const ContactSection = lazy(() => import('@/components/ContactSection'));
+const Footer = lazy(() => import('@/components/Footer'));
+
+// Minimal loading skeleton for lazy-loaded sections
+const SectionSkeleton = () => (
+  <div className="py-16 px-4 animate-pulse">
+    <div className="max-w-4xl mx-auto">
+      <div className="h-8 bg-muted/20 rounded-lg w-48 mx-auto mb-8" />
+      <div className="h-64 bg-muted/10 rounded-2xl" />
+    </div>
+  </div>
+);
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -48,13 +60,23 @@ const Index = () => {
       
       <main className="flex-1">
         <WelcomeCard />
-        <AboutSection />
-        <ProjectsSection />
-        <CertificatesSection />
-        <ContactSection />
+        <Suspense fallback={<SectionSkeleton />}>
+          <AboutSection />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton />}>
+          <ProjectsSection />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton />}>
+          <CertificatesSection />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton />}>
+          <ContactSection />
+        </Suspense>
       </main>
       
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 };
