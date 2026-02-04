@@ -65,7 +65,7 @@ const HeroSection = () => {
           className="mb-4 sm:mb-5 md:mb-6"
         >
           <span className="inline-block px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full bg-primary/6 backdrop-blur-sm text-primary text-[10px] sm:text-xs md:text-sm font-medium border border-primary/12">
-            IT Engineer & Cybersecurity Enthusiast
+            Developer & CyberSecurity - Red Teammer
           </span>
         </motion.div>
 
