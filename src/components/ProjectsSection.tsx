@@ -132,12 +132,20 @@ const categories: ProjectCategory[] = [
   },
 ];
 
-const websiteProject = {
-  title: "Brand Builders GCC",
-  description: "A comprehensive branding and digital solutions platform serving businesses across the GCC region.",
-  url: "https://www.brandbuildersgcc.com/",
-  tags: ["Web Development", "Branding", "Digital Solutions"],
-};
+const websiteProjects = [
+  {
+    title: "Talksy CX",
+    description: "An intelligent customer experience platform delivering seamless conversational solutions for businesses.",
+    url: "https://www.talksy-cx.com/",
+    tags: ["Web Development", "CX Platform", "Conversational AI"],
+  },
+  {
+    title: "Brand Builders GCC",
+    description: "A comprehensive branding and digital solutions platform serving businesses across the GCC region.",
+    url: "https://www.brandbuildersgcc.com/",
+    tags: ["Web Development", "Branding", "Digital Solutions"],
+  },
+];
 
 const CategoryCard = ({ category, index }: { category: ProjectCategory; index: number }) => {
   const [isOpen, setIsOpen] = useState(false);
