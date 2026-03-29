@@ -132,12 +132,20 @@ const categories: ProjectCategory[] = [
   },
 ];
 
-const websiteProject = {
-  title: "Brand Builders GCC",
-  description: "A comprehensive branding and digital solutions platform serving businesses across the GCC region.",
-  url: "https://www.brandbuildersgcc.com/",
-  tags: ["Web Development", "Branding", "Digital Solutions"],
-};
+const websiteProjects = [
+  {
+    title: "Talksy CX",
+    description: "An intelligent customer experience platform delivering seamless conversational solutions for businesses.",
+    url: "https://www.talksy-cx.com/",
+    tags: ["Web Development", "CX Platform", "Conversational AI"],
+  },
+  {
+    title: "Brand Builders GCC",
+    description: "A comprehensive branding and digital solutions platform serving businesses across the GCC region.",
+    url: "https://www.brandbuildersgcc.com/",
+    tags: ["Web Development", "Branding", "Digital Solutions"],
+  },
+];
 
 const CategoryCard = ({ category, index }: { category: ProjectCategory; index: number }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -288,43 +296,48 @@ const ProjectsSection = () => {
           </p>
         </motion.div>
 
-        {/* Website Project */}
-        <motion.a
-          href={websiteProject.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-primary/8 shadow-card group cursor-pointer mb-4 sm:mb-6"
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          whileHover={{ scale: 1.01 }}
-          whileTap={{ scale: 0.99 }}
-        >
-          <div className="flex items-start gap-4 sm:gap-5">
-            <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-              <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-2">
-                <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                  {websiteProject.title}
-                </h3>
-                <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+        {/* Website Projects */}
+        <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
+          {websiteProjects.map((project, i) => (
+            <motion.a
+              key={project.title}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 md:p-8 border border-primary/8 shadow-card group cursor-pointer"
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ delay: i * 0.08, duration: 0.6, ease: "easeOut" }}
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
+            >
+              <div className="flex items-start gap-4 sm:gap-5">
+                <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Globe className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                  </div>
+                  <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="px-2.5 sm:px-3 py-1 rounded-full bg-primary/8 text-primary text-xs font-medium border border-primary/12">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-3 sm:mb-4">
-                {websiteProject.description}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {websiteProject.tags.map((tag) => (
-                  <span key={tag} className="px-2.5 sm:px-3 py-1 rounded-full bg-primary/8 text-primary text-xs font-medium border border-primary/12">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.a>
+            </motion.a>
+          ))}
+        </div>
 
         {/* Category Cards */}
         <div className="space-y-3 sm:space-y-4">
