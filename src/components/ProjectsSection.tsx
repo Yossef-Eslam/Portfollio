@@ -140,6 +140,12 @@ const websiteProjects = [
     tags: ["Web Development", "CX Platform", "Conversational AI"],
   },
   {
+    title: "Flamingo Natural Cosmetics",
+    description: "A premium e-commerce platform for natural and organic cosmetics, offering a seamless shopping experience.",
+    url: "https://flamingonaturalcosmetics.com",
+    tags: ["E-commerce", "Web Development", "Beauty & Cosmetics"],
+  },
+  {
     title: "Brand Builders GCC",
     description: "A comprehensive branding and digital solutions platform serving businesses across the GCC region.",
     url: "https://www.brandbuildersgcc.com/",
