@@ -1,23 +1,23 @@
 import { motion } from 'framer-motion';
-import { Database, Shield, Code, Cpu, Globe, Lock } from 'lucide-react';
+import { Shield, Code, Bot, Cpu, Globe, Lock } from 'lucide-react';
 
 const skills = [
   {
-    icon: Database,
-    title: 'Databases',
-    description: 'Expert in designing and managing various database systems for optimal performance',
+    icon: Code,
+    title: 'Core Engineering',
+    description: 'Architecting secure, scalable software systems, APIs, and high-performance web platforms.',
     color: 'from-primary to-secondary',
   },
   {
-    icon: Code,
-    title: 'Programming',
-    description: 'Developing web applications and diverse software solutions with modern technologies',
+    icon: Shield,
+    title: 'Offensive Security (OSCP)',
+    description: 'OSCP-aligned penetration testing, red teaming, and hardening of production systems.',
     color: 'from-primary via-accent to-secondary',
   },
   {
-    icon: Shield,
-    title: 'Cybersecurity',
-    description: 'Protecting systems and networks from electronic threats and vulnerabilities',
+    icon: Bot,
+    title: 'AI & Business Automation',
+    description: 'Engineering autonomous AI agents and workflow automation that protect revenue and scale operations.',
     color: 'from-secondary to-primary',
   },
 ];
@@ -30,7 +30,7 @@ const additionalSkills = [
 
 const aboutLines = [
   "I am passionate about technology and its potential to solve real-world problems.",
-  "With years of experience in IT, I specialize in creating secure and efficient systems.",
+  "As a Software Engineer & Cybersecurity Expert, I specialize in creating secure and efficient systems.",
   "I believe in continuous learning and staying updated with the latest industry trends.",
   "My goal is to build solutions that make a meaningful impact.",
 ];
