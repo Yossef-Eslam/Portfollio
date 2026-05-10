@@ -39,7 +39,7 @@ const HeroSection = () => {
       <div className="relative z-10 w-full max-w-3xl mx-auto">
         <div className="mb-4 sm:mb-5 md:mb-6">
           <span className="inline-block px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full bg-primary/6 backdrop-blur-sm text-primary text-[10px] sm:text-xs md:text-sm font-medium border border-primary/12">
-            Developer & CyberSecurity - Red Teammer
+            Software Engineer & Cybersecurity Expert
           </span>
         </div>
 
@@ -53,8 +53,7 @@ const HeroSection = () => {
         </h1>
 
         <p className="text-sm sm:text-base md:text-lg lg:text-xl text-muted-foreground max-w-md sm:max-w-lg md:max-w-xl mx-auto leading-relaxed px-2">
-          Building secure digital solutions with expertise in databases, 
-          programming, and cybersecurity
+          Specializing in building secure, automated software ecosystems and high-performance platforms.
         </p>
       </div>
 
