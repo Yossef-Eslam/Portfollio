@@ -6,6 +6,7 @@ import WelcomeCard from '@/components/WelcomeCard';
 // Lazy load below-the-fold components for better initial load performance
 const AboutSection = lazy(() => import('@/components/AboutSection'));
 const ProjectsSection = lazy(() => import('@/components/ProjectsSection'));
+const InsightsSection = lazy(() => import('@/components/InsightsSection'));
 const CertificatesSection = lazy(() => import('@/components/CertificatesSection'));
 const ContactSection = lazy(() => import('@/components/ContactSection'));
 const Footer = lazy(() => import('@/components/Footer'));
@@ -35,9 +36,11 @@ const Index = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'about', 'projects', 'certificates', 'contact'];
+      // include insights for active state highlighting
+      const allSections = ['home', 'about', 'projects', 'insights', 'certificates', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
-      for (const section of sections) {
+      for (const section of allSections) {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
@@ -65,6 +68,9 @@ const Index = () => {
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           <ProjectsSection />
+        </Suspense>
+        <Suspense fallback={<SectionSkeleton />}>
+          <InsightsSection />
         </Suspense>
         <Suspense fallback={<SectionSkeleton />}>
           <CertificatesSection />
