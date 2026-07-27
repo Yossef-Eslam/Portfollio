@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Heart, Linkedin, Facebook, MessageCircle } from 'lucide-react';
+import { Heart, Linkedin, MessageCircle } from 'lucide-react';
 
 const socialLinks = [
   { icon: MessageCircle, href: 'https://wa.me/201155625203', label: 'WhatsApp' },
