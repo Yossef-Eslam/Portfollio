@@ -30,7 +30,7 @@ const additionalSkills = [
 
 const aboutLines = [
   "I am passionate about technology and its potential to solve real-world problems.",
-  "As a Software Engineer & Cybersecurity Expert, I specialize in creating secure and efficient systems.",
+  "As a Software Engineer\u00a0 I specialize in creating secure and efficient systems.",
   "I believe in continuous learning and staying updated with the latest industry trends.",
   "My goal is to build solutions that make a meaningful impact.",
 ];
