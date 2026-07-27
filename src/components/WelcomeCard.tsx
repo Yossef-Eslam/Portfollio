@@ -46,7 +46,7 @@ const WelcomeCard = () => {
               My expertise spans databases, programming, and cybersecurity.
             </p>
             <p className="text-foreground text-sm sm:text-base md:text-lg lg:text-xl font-medium">
-              Explore the site to learn more about me!
+              Explore the site to learn more about me
             </p>
           </div>
 
