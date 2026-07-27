@@ -1,10 +1,9 @@
 import { motion } from 'framer-motion';
-import { Heart, Linkedin, Facebook, MessageCircle } from 'lucide-react';
+import { Heart, Linkedin, MessageCircle } from 'lucide-react';
 
 const socialLinks = [
   { icon: MessageCircle, href: 'https://wa.me/201155625203', label: 'WhatsApp' },
   { icon: Linkedin, href: 'https://www.linkedin.com/in/yossef-eslam-158094305/', label: 'LinkedIn' },
-  { icon: Facebook, href: 'https://www.facebook.com/yossef.eltokhy/about', label: 'Facebook' },
 ];
 
 const Footer = () => {
